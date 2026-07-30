@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+
+:root {
+  /* Palet "buku besar tua": perkamen, tinta pinus gelap, aksen emas pudar */
+  --paper: #f6f1e4;
+  --paper-dark: #ede4cd;
+  --ink: #1c2b27;
+  --ink-soft: #6b6459;
+  --rule: #c9bfa6;
+  --primary: #123330;
+  --primary-dark: #0b211f;
+  --primary-tint: #e4ece9;
+  --gold: #a9822f;
+  --gold-dark: #7d5f20;
+  --gold-tint: #f1e6c8;
+  --danger: #8c3a2b;
+  --danger-tint: #f4e2dd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    radial-gradient(ellipse at top left, rgba(18, 51, 48, 0.04), transparent 55%),
+    radial-gradient(ellipse at bottom right, rgba(169, 130, 47, 0.05), transparent 55%);
+  color: var(--ink);
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Input bergaya "isian formulir kertas": garis bawah putus-putus, tanpa kotak */
+.field-line {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px dotted var(--ink-soft);
+  padding: 0.4rem 0.15rem;
+  font-size: 0.95rem;
+  color: var(--ink);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.field-line:hover {
+  border-bottom-style: solid;
+  border-bottom-color: var(--rule);
+}
+
+.field-line:focus {
+  outline: none;
+  border-bottom-style: solid;
+  border-bottom-color: var(--primary);
+  background: var(--primary-tint);
+}
+
+.field-line::placeholder {
+  color: #b8b0a0;
+}
+
+select.field-line {
+  border-bottom-style: dotted;
+  cursor: pointer;
+}
+
+textarea.field-line {
+  resize: vertical;
+  min-height: 4.5rem;
+  line-height: 1.5;
+}
+
+.roman-badge {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-variant-numeric: normal;
+}
+
+.chip {
+  border: 1px solid var(--rule);
+  background: #fffdf7;
+}
+
+.chip[data-active='true'] {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fffdf7;
+}
+
+.paper-card {
+  background: #fffdf7;
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 2px rgba(28, 43, 39, 0.04);
+}
+
+::selection {
+  background: var(--gold-tint);
+  color: var(--primary-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
